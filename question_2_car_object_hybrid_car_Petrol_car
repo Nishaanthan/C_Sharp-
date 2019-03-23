@@ -1,0 +1,148 @@
+//class 1 cs file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Question2
+{
+    public class HybridCar: PetrolCar
+    {
+        float batteryPayablePercentage;
+
+        public HybridCar(String vehicleRegistrationNo, String manufacturer, String model, 
+            int maufacturedYear, float marketPrice, float carPayablePercentage, float batteryPayablePercentage) 
+            : base(vehicleRegistrationNo, manufacturer, model, maufacturedYear, marketPrice, 
+                  carPayablePercentage)
+        {
+            this.batteryPayablePercentage = batteryPayablePercentage;
+            
+        }
+
+        public void setBatteryPayablePercentage(float batteryPayablePercentage)
+        {
+            this.batteryPayablePercentage = batteryPayablePercentage;
+        }
+        
+        public float getbatteryPayablePercentage()
+        {
+            return batteryPayablePercentage;
+        }
+
+        public override void getCarDetails()
+        {
+
+        }
+
+    }
+}
+
+
+//Petrol_car.cs file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Question2
+{
+    public class PetrolCar
+    {
+        private String vehicleRegistrationNo;
+        private String manufacturer;
+        private String model;
+        private int maufacturedYear;
+        private float marketPrice;
+        private float carPayablePercentage;
+
+        //Constructor
+        public PetrolCar(String vehicleRegistrationNo, String manufacturer, String model, int maufacturedYear, float marketPrice, float carPayablePercentage)
+        {
+            this.vehicleRegistrationNo = vehicleRegistrationNo;
+            this.manufacturer = manufacturer;
+            this.model = model;
+            this.maufacturedYear = maufacturedYear;
+            this.marketPrice = marketPrice;
+            this.carPayablePercentage = carPayablePercentage;
+        }
+
+        // Mutatator for Vechile Registration No
+        public void setVehicleRegistrationNo(String vehicleRegistrationNo)
+        { 
+            this.vehicleRegistrationNo = vehicleRegistrationNo;
+        }
+
+        //Accessor for Vechile Registration No
+        public String getVehicleRegistrationNo()
+        {
+            return vehicleRegistrationNo;
+        }
+
+        public void setManufacturer(String manufacturer)
+        {
+            this.manufacturer = manufacturer;
+        }
+        public String getManufacturer()
+        {
+            return manufacturer;
+        }
+
+        public void setModel(String model)
+
+        {
+            this.model = model;
+        }
+        public String getModel()
+        {
+            return model;
+        }
+
+        public void setMaufacturedYear(int maufacturedYear)
+        {
+            this.maufacturedYear = maufacturedYear;
+        }
+
+        public int getMaufacturedYear()
+        {
+            return maufacturedYear;
+        }
+
+     public string getCarDetails()
+        {
+
+            float annualPayable = marketPrice * (carPayablePercentage + carPayablePercentage) / 100;
+            return "The annual payable for and vachicle registration no is" + vehicleRegistrationNo +
+                "is Rs" + annualPayable;
+        }
+
+    }
+}
+
+
+
+// Program main file
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Question2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            PetrolCar nissan = new PetrolCar("NP-1234","Jeevan");
+
+            nissan.getCarDetails();  //get car details//
+
+            Console.WriteLine(nissan.getVehicleRegistrationNo());
+
+            Console.ReadLine();
+        }
+    }
+}
+
